@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andyp\\source\\repos\\AgilInlamning\\Agil\\Agil\\Agil.csproj": {}
+    "C:\\Users\\marie\\Source\\Repos\\AgilInlamning\\Agil\\Agil\\Agil.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andyp\\source\\repos\\AgilInlamning\\Agil\\Agil\\Agil.csproj": {
+    "C:\\Users\\marie\\Source\\Repos\\AgilInlamning\\Agil\\Agil\\Agil.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andyp\\source\\repos\\AgilInlamning\\Agil\\Agil\\Agil.csproj",
+        "projectUniqueName": "C:\\Users\\marie\\Source\\Repos\\AgilInlamning\\Agil\\Agil\\Agil.csproj",
         "projectName": "Agil",
-        "projectPath": "C:\\Users\\andyp\\source\\repos\\AgilInlamning\\Agil\\Agil\\Agil.csproj",
-        "packagesPath": "C:\\Users\\andyp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andyp\\source\\repos\\AgilInlamning\\Agil\\Agil\\obj\\",
+        "projectPath": "C:\\Users\\marie\\Source\\Repos\\AgilInlamning\\Agil\\Agil\\Agil.csproj",
+        "packagesPath": "C:\\Users\\marie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marie\\Source\\Repos\\AgilInlamning\\Agil\\Agil\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\andyp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marie\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
