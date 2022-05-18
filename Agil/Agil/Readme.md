@@ -8,4 +8,6 @@ Product owner - Dennis och Marielle
 Scrum master - Simon och Andreas
 
 
-Vi ska göra en blocket sida inspirerat av [blocket.se](https://www.youtube.com/watch?v=dQw4w9WgXcQ)!!!!
+Vi ska göra en sälj sida inspirerat av [blocket.se](https://www.blocket.se/)!!!!
+
+
