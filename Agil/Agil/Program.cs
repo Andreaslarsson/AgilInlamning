@@ -1,7 +1,15 @@
+using Agil.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<ApplicationDbContext>(
+    options => options.UseSqlServer(
+        builder.Configuration.GetConnectionString("default"))
+    );
 
 var app = builder.Build();
 
@@ -21,5 +29,13 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+using (var scope = app.Services.CreateScope())
+{
+    var ctx = scope.ServiceProvider
+        .GetRequiredService<ApplicationDbContext>();
+
+    ctx.Database.EnsureDeleted();
+    ctx.Database.EnsureCreated();
+}
 
 app.Run();
