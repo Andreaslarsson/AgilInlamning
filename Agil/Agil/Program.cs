@@ -1,4 +1,5 @@
 using Agil.Data;
+using Agil.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +11,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(
         builder.Configuration.GetConnectionString("default"))
     );
+builder.Services.AddDefaultIdentity<User>()
+    .AddEntityFrameworkStores<ApplicationDbContext>(); ;
 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -26,7 +31,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+
 
 app.MapRazorPages();
 using (var scope = app.Services.CreateScope())
@@ -37,5 +42,7 @@ using (var scope = app.Services.CreateScope())
     ctx.Database.EnsureDeleted();
     ctx.Database.EnsureCreated();
 }
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();

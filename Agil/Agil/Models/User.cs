@@ -1,6 +1,8 @@
-﻿namespace Agil.Models;
+﻿using Microsoft.AspNetCore.Identity;
 
-public class User
+namespace Agil.Models;
+
+public class User : IdentityUser
 {
-    
+
 }
