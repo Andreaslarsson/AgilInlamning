@@ -1,11 +1,14 @@
 using Agil.Data;
 using Agil.Models;
+using Agil.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<WebsiteHandler>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(
@@ -30,8 +33,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
-
 
 app.MapRazorPages();
 using (var scope = app.Services.CreateScope())
