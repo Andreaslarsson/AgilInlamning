@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                <a class="navbar-brand mx-5" asp-area="" asp-page="/Index">Skapa en annons</a>
+                <a class="navbar-brand mx-5" asp-area="" asp-page="/SkapaAnnons">Skapa en annons</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,13 +32,13 @@
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Annonser</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Annonser">Annonser</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Medelanden</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Medelanden">Medelanden</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Bevakningar</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Bevakningar">Bevakningar</a>
                             </li>
                         </ul>
                     </div>
@@ -48,6 +48,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            <img src="/IMG/köpochsälj.jpg" alt="Köp&Sälj" style="width:1500px;height:600px;"/>
             @RenderBody()
         </main>
     </div>
