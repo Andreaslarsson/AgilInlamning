@@ -9,5 +9,6 @@ public class Item
     public int Price { get; set; }
     public string Place { get; set; }
 
-    public virtual User User { get; set; }
+    public virtual User? User { get; set; }
+    public ICollection<User>? Savedby { get; set; }
 }
