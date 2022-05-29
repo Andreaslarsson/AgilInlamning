@@ -2,19 +2,39 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    var databaseItems = await _websiteHandler.GetItemsDatabase();
 }
 
 
-<div class="container h-100">
-    <div class="d-flex justify-content-center h-100">
-        <div class="searchbar">
-            <input class="search_input" type="text" name="" placeholder="Search...">
-            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+<body>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/IMG/köpochsälj.jpg" class="d-block w-90" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/IMG/köpochsälj.jpg" class="d-block w-90" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/IMG/köpochsälj.jpg" class="d-block w-90" alt="...">
         </div>
     </div>
 </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    
-</div>
+
+@foreach (var x in databaseItems)
+{
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h1>@x.Title</h1>
+            <p>@x.Description</p>
+            <p>@x.Price</p>
+            <p>@x.User</p>
+        </div>
+    </div>
+}
+
+
+</body>

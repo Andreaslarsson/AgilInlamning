@@ -7,7 +7,12 @@ a.navbar-brand {
     word-break: break-all;
 }
 
-
+main {
+    background-color: red;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    padding: 30px;
+}
 
 a {
   color: #0077cc;

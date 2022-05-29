@@ -1,5 +1,6 @@
 ﻿using Agil.Data;
 using Agil.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Agil.Services
 {
@@ -26,5 +27,13 @@ namespace Agil.Services
 
             await _ctx.SaveChangesAsync();
         }
+
+        public async Task<List<Item>> GetItemsDatabase()
+        {
+            var DbEvents = await _ctx.Items.Include(x => x.User)
+                .ToListAsync();
+            return DbEvents;
+        }
+
     }
 }
