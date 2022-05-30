@@ -32,6 +32,7 @@ namespace Agil.Services
         {
             var user = await _ctx.Users.FirstAsync(u => u.Id == userId);
             var item = await _ctx.Items.FirstAsync(i => i.Id == itemId);
+            user.SavedItems ??= new List<Item>();
             user.SavedItems.Add(item);
             await _ctx.SaveChangesAsync();
         }
