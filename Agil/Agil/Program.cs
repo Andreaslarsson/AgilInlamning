@@ -9,13 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<WebsiteHandler>();
+builder.Services.AddScoped<DatabaseService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(
         builder.Configuration.GetConnectionString("default"))
     );
+
 builder.Services.AddDefaultIdentity<User>()
-    .AddEntityFrameworkStores<ApplicationDbContext>(); ;
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
 
@@ -35,13 +37,21 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.MapRazorPages();
+
 using (var scope = app.Services.CreateScope())
 {
     var ctx = scope.ServiceProvider
-        .GetRequiredService<ApplicationDbContext>();
+        .GetRequiredService<DatabaseService>();
 
-    ctx.Database.EnsureDeleted();
-    ctx.Database.EnsureCreated();
+    if (app.Environment.IsProduction())
+    {
+        await ctx.CreateIfNotExist();
+    }
+
+    if (app.Environment.IsDevelopment())
+    {
+        await ctx.CreateAndSeedIfNotExist();
+    }
 }
 app.UseAuthentication();
 app.UseAuthorization();
