@@ -1,5 +1,6 @@
 ﻿using Agil.Data;
 using Agil.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Agil.Services
 {
@@ -25,6 +26,14 @@ namespace Agil.Services
             });
 
             await _ctx.SaveChangesAsync();
+        }
+
+        public List<Item> GetAllItems()
+        {
+            var itemList =  _ctx.Items
+                .ToList();
+
+            return itemList;
         }
     }
 }
