@@ -36,7 +36,7 @@ namespace Agil.Services
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                     Category = "För hemmet",
                     Place = "Stockholm",
-                    Price = 1000,
+                    Price = 3000,
                     User = testUser
                 },
                 new Item()
@@ -53,6 +53,18 @@ namespace Agil.Services
 
             await _ctx.AddRangeAsync(itemList);
             await _ctx.SaveChangesAsync();
+        }
+
+        public async Task Recreate()
+        {
+            await _ctx.Database.EnsureDeletedAsync();
+            await _ctx.Database.EnsureCreatedAsync();
+        }
+
+        public async Task RecreateAndSeed()
+        {
+            await Recreate();
+            await Seed();
         }
 
         public async Task CreateIfNotExist()

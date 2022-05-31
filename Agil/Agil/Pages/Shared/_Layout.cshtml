@@ -2,6 +2,7 @@
 @using Agil.Models
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<User> _signInManager
+@inject IWebHostEnvironment _environment
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,8 +43,13 @@
                         <li>
                             <partial name="_LoginPartial"/>
                         </li>
-                        
                     </ul>
+                    @if (_environment.IsDevelopment())
+                    {
+                        <li class="nav-item text-end navbar-nav">
+                            <a class="btn btn-warning" asp-page="/ResetDb">Återställ databasen</a>
+                        </li>
+                    }
                 </div>
             </div>
         </nav>
