@@ -34,6 +34,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.MapControllerRoute(
+    name: "items",
+    pattern: "home/items",
+    new { controller = "Home", action = "Items" });
+
 app.MapRazorPages();
 using (var scope = app.Services.CreateScope())
 {

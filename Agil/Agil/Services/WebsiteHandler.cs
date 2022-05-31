@@ -36,5 +36,13 @@ namespace Agil.Services
             user.SavedItems.Add(item);
             await _ctx.SaveChangesAsync();
         }
+
+        public List<Item> GetAllItems()
+        {
+            var itemList =  _ctx.Items
+                .ToList();
+
+            return itemList;
+        }
     }
 }

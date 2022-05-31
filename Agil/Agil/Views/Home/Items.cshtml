@@ -1,0 +1,18 @@
+﻿@using Agil.Services
+@inject WebsiteHandler _WebsiteHandler
+@{
+    var itemList = _WebsiteHandler.GetAllItems();
+}
+
+    @foreach (var i in itemList)
+    {
+        <div class="list-group w-50 mx-auto m-2">
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between mb-2">
+                    <small>@i.Category - @i.Place</small>
+                </div>
+                <h5 class="mb-2">@i.Title</h5>
+                <p class="mb-1">Pris: @i.Price:-</p> 
+            </a>
+        </div>
+    }
