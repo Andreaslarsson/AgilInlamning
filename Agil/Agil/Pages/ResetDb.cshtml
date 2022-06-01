@@ -1,0 +1,16 @@
+﻿@page
+@model Agil.Pages.ResetDbModel
+@{
+}
+
+<form method="post">
+    @if (HttpContext.Request.Method == "GET")
+    {
+        <p>Vill du resetta databasen?</p>
+    }
+    else
+    {
+        <p>Databasen har resettats</p>
+    }
+    <button type="submit" class="btn btn-warning">Resetta databas</button>
+</form>
