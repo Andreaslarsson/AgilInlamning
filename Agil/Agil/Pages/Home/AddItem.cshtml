@@ -13,23 +13,23 @@
     <form class="w-50 mx-auto border mt-4 mb-4 p-3" method="post">
         <div class="form-group">
             <label asp-for="Item.Title">Title</label>
-            <input asp-for="Item.Title" type="text" class="form-control" placeholder="Title">
+            <input asp-for="Item.Title" type="text" class="form-control" placeholder="Titel">
         </div>
         <div class="form-group">
             <label asp-for="Item.Description">Description</label>
-            <textarea asp-for="Item.Description" type="text" class="form-control" placeholder="Description"></textarea>
+            <textarea asp-for="Item.Description" type="text" class="form-control" placeholder="Info"></textarea>
         </div>
         <div class="form-group">
             <label asp-for="Item.Category">Category</label>
-            <input asp-for="Item.Category" type="text" class="form-control" placeholder="Category">
+            <input asp-for="Item.Category" type="text" class="form-control" placeholder="Kategori">
         </div>
         <div class="form-group">
             <label asp-for="Item.Place">Place</label>
-            <input asp-for="Item.Place" type="text" class="form-control" placeholder="Place">
+            <input asp-for="Item.Place" type="text" class="form-control" placeholder="Plats">
         </div>
         <div class="form-group">
             <label asp-for="Item.Price">Price</label>
-            <input asp-for="Item.Price" type="text" class="form-control" placeholder="Price">
+            <input asp-for="Item.Price" type="text" class="form-control" placeholder="Pris">
         </div>
         <button type="submit" class="btn btn-secondary mt-2">Submit</button>
     </form>
@@ -37,7 +37,7 @@
 else
 {
     <div class="text-center mt-4">
-        <h3>Log in to add item!</h3>
-        <a type="button" class="btn btn-secondary" asp-area="Identity" asp-page="/Account/Login">Log in</a>
+        <h3>Logga in för att skapa annons</h3>
+        <a type="button" class="btn btn-secondary" asp-area="Identity" asp-page="/Account/Login">Logga in</a>
     </div>
 }
