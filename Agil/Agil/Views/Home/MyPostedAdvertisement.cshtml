@@ -11,15 +11,29 @@
 
     @foreach (var i in myPostedAdvertisementList)
     {
-        <div class="list-group w-50 mx-auto m-2">
-            <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between mb-2">
-                    <small>@i.Category - @i.Place</small>
+
+        <div class="card mb-3 mx-auto w-50">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="Bild på det som säljes/köpes">
                 </div>
-                <h5 class="mb-2">@i.Title</h5>
-                <p class="mb-1">Pris: @i.Price:-</p> 
-            </a>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="d-flex mb-3">
+                            <h5 class="me-auto p-2 card-title">@i.Title</h5>
+                            <a class="p-2 btn btn-warning" asp-page="/Home/Edit" asp-route-id="@i.Id" data-bs-toggle="tooltip" title="Redigera"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <br/>
+                            <a class="p-2 btn btn-danger" asp-page="/Home/Delete" asp-route-id="@i.Id" data-bs-toggle="tooltip" title="Radera"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        </div>
+                        <p class="card-text">@i.Description</p>
+                        <p class=" card-text"><small class="text-muted">@i.Category-@i.Place</small></p>
+                        <p class="card-text"><small class="text-muted">Pris: @i.Price :-</small></p>
+                    </div>
+                </div>
+            </div>
         </div>
+            
+            
     }
 @if(myPostedAdvertisementList.Count == 0)
 {
