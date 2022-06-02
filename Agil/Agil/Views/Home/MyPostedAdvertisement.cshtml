@@ -1,0 +1,32 @@
+﻿@using Agil.Services
+@using Microsoft.AspNetCore.Identity
+@using Agil.Models
+@using System.Diagnostics.CodeAnalysis
+@inject WebsiteHandler _websiteHandler
+@inject UserManager<User> _userManager
+@inject SignInManager<User> _signInManager
+@{
+    var myPostedAdvertisementList = await _websiteHandler.MyPostedAdvertisement(_userManager.GetUserId(User));
+}
+
+    @foreach (var i in myPostedAdvertisementList)
+    {
+        <div class="list-group w-50 mx-auto m-2">
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between mb-2">
+                    <small>@i.Category - @i.Place</small>
+                </div>
+                <h5 class="mb-2">@i.Title</h5>
+                <p class="mb-1">Pris: @i.Price:-</p> 
+            </a>
+        </div>
+    }
+@if(myPostedAdvertisementList.Count == 0)
+{
+    <div>
+        <h3>Du har inte lagt upp några annonser än.</h3>
+        <p>Klicka <a class="nav-link text-dark" asp-page="/Home/AddItem">här</a> för att skapa en annons.</p>
+    </div>
+}
+    
+

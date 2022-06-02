@@ -44,5 +44,20 @@ namespace Agil.Services
 
             return itemList;
         }
+        public User GetThisUser(string userId)
+        {
+            var thisUser = _ctx.Users
+                .Include(a => a.Items)
+                .Include(u => u.SavedItems)
+                .First(a => a.Id == userId);
+
+            return thisUser;
+        }
+        public async Task<List<Item>> MyPostedAdvertisement(string userId)
+        {
+            var thisUser = GetThisUser(userId);
+
+            return thisUser.Items.ToList();
+        }
     }
 }
