@@ -1,49 +1,84 @@
 ﻿@page
+@using Microsoft.AspNetCore.Identity
+@using Agil.Models
 @model IndexModel
+@inject SignInManager<User> _signInManager
+@inject UserManager<User> _userManager
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Home page";
+    var user = _userManager.GetUserName(User);
+}
+@if (_signInManager.IsSignedIn(User))
+{
+    <form method="post">
+    <div class="card mb-3 mx-auto w-50 text-center" style="border-radius: 15px; width: 500px">
+        <h3 style="margin-top: 25px; margin-bottom: 25px">
+            Välkommen @user
+        </h3>
+        <div class="card-body text-center" style="margin: auto">
+            <div class="text-center" style="border: solid; border-radius: 20px; width: 250px; margin-top: 25px; margin-bottom: 25px">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" placeholder="Vad vill du söka efter?" style="border: none">
+            </div>
+            
+            <select asp-for="Item.Place" class="form-select shadow-none border-secondary text-center" style="border-radius: 10px; width: 250px; margin-top: 25px; margin-bottom: 25px">
+                <option selected>Välj Plats</option>
+                <option>Svealand</option>
+                <option>Götaland</option>
+                <option>Norrland</option>
+            </select>
+            <input style="margin-top: 25px; margin-bottom: 25px" class="btn btn-primary" type="submit" value="Hitta annons"/>
+        </div>
+    </div>
+    </form>
+}
+else
+{
+    <div>
+        <h1>Katagorier</h1>
+    </div>
+    <div>
+        <ul class="nav">
+            <li class="nav-item">
+                <img src="favicon.icon"/>
+                <a class="nav-link active" href="#">katagori1</a>
+            </li>
+            <li class="nav-item">
+                <img src="favicon.icon"/>
+                <a class="nav-link" href="#">katagori2</a>
+            </li>
+            <li class="nav-item">
+                <img src="favicon.icon"/>
+                <a class="nav-link" href="#">katagori3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#"></a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Sök</h5>
+            <a href="#" class="input-group">Gå någonstans</a>
+            <h5 class="card-title">Sök</h5>
+            <a href="#" class="btn btn-primary">Gå någonstans</a>
+        </div>
+    </div>
+
+    <div>
+        <h1>Registera dig</h1>
+        <a class="btn btn-primary" id="register" asp-area="Identity" asp-page="/Account/Register">Registera dig</a>
+    
+    </div>
+    <div>
+        <h1>---Plats för Annons----</h1>
+    </div>
 }
 
 
-<div>
-    <h1>Katagorier</h1>
-</div>
-<div>
-    <ul class="nav">
-        <li class="nav-item">
-            <img src="favicon.icon"/>
-            <a class="nav-link active" href="#">katagori1</a>
-        </li>
-        <li class="nav-item">
-            <img src="favicon.icon"/>
-            <a class="nav-link" href="#">katagori2</a>
-        </li>
-        <li class="nav-item">
-            <img src="favicon.icon"/>
-            <a class="nav-link" href="#">katagori3</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#"></a>
-        </li>
-    </ul>
-</div>
 
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Sök</h5>
-        <a href="#" class="input-group">Gå någonstans</a>
-        <h5 class="card-title">Sök</h5>
-        <a href="#" class="btn btn-primary">Gå någonstans</a>
-    </div>
-</div>
 
-<div>
-    <h1>Registera dig</h1>
-    <a class="btn btn-primary" id="register" asp-area="Identity" asp-page="/Account/Register">Registera dig</a>
-    
-</div>
 
-<div>
-    <h1>---Plats för Annons----</h1>
-</div>
