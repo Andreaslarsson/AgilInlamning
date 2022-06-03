@@ -57,7 +57,7 @@ namespace Agil.Pages.Home
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToAction("MyPostedAdvertisement", "Home");
         }
     }
 }
