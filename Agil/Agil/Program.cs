@@ -40,6 +40,9 @@ app.MapControllerRoute(
     name: "items",
     pattern: "home/items",
     new { controller = "Home", action = "Items" });
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}");
 
 app.MapRazorPages();
 
