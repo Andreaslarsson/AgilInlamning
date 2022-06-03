@@ -1,6 +1,5 @@
 ﻿using Agil.Data;
 using Agil.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Agil.Services
@@ -44,14 +43,6 @@ namespace Agil.Services
                 .ToList();
 
             return itemList;
-        }
-
-        [HttpGet]
-        public async Task<Item> GetSingelItem(int id)
-        {
-            var x = await _ctx.Items
-                .FirstAsync(x => x.Id == id);
-            return x;
         }
     }
 }
