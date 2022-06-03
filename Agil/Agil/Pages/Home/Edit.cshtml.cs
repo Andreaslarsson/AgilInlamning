@@ -66,7 +66,7 @@ namespace Agil.Pages.Home
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToAction("MyPostedAdvertisement", "Home");
         }
 
         private bool ItemExists(int id)
