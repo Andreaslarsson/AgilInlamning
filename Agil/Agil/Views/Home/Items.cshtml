@@ -13,6 +13,8 @@
                 </div>
                 <h5 class="mb-2">@i.Title</h5>
                 <p class="mb-1">Pris: @i.Price:-</p> 
+                
+                <a asp-page="/Home/ShowItem" class="btn btn-primary" asp-route-id="@i.Id">More Info</a>
             </a>
         </div>
     }
