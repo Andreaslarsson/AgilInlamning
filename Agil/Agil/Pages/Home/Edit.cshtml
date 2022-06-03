@@ -13,29 +13,43 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Item.Id" />
             <div class="form-group">
-                <label asp-for="Item.Title" class="control-label"></label>
+                <label asp-for="Item.Title" class="control-label">Titel</label>
                 <input asp-for="Item.Title" class="form-control" />
                 <span asp-validation-for="Item.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Item.Description" class="control-label"></label>
+                <label asp-for="Item.Description" class="control-label">Beskrivning</label>
                 <input asp-for="Item.Description" class="form-control" />
                 <span asp-validation-for="Item.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Item.Category" class="control-label"></label>
-                <input asp-for="Item.Category" class="form-control" />
-                <span asp-validation-for="Item.Category" class="text-danger"></span>
+                <label asp-for="Item.Category">Kategori</label>
+                <select asp-for="Item.Category" class="form-select shadow-none border-secondary">
+                    <option selected>Välj...</option>
+                    <option>Jobb</option>
+                    <option>Fordon</option>
+                    <option>För hemmet</option>
+                    <option>Bostad</option>
+                    <option>Personligt</option>
+                    <option>Elektronik</option>
+                    <option>Fritid & hobby</option>
+                    <option>Affärsverksamhet</option>
+                    <option>Övrigt</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="Item.Price" class="control-label"></label>
+                <label asp-for="Item.Price" class="control-label">Pris</label>
                 <input asp-for="Item.Price" class="form-control" />
                 <span asp-validation-for="Item.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Item.Place" class="control-label"></label>
-                <input asp-for="Item.Place" class="form-control" />
-                <span asp-validation-for="Item.Place" class="text-danger"></span>
+                <label asp-for="Item.Place">Plats</label>
+                <select asp-for="Item.Place" class="form-select shadow-none border-secondary">
+                    <option selected>Välj...</option>
+                    <option>Svealand</option>
+                    <option>Götaland</option>
+                    <option>Norrland</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Spara" class="btn btn-primary" />
