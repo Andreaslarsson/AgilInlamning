@@ -1,0 +1,17 @@
+﻿@page
+@model Agil.Pages.Home.ShowItemModel
+
+<form method="Post">
+    @if (HttpContext.Request.Method == "GET")
+    {
+        <h1>@Model.Item.Title</h1>
+        <p>@Model.Item.Category</p>
+        <p>@Model.Item.Description</p>
+        <p>@Model.Item.Place</p>
+        <p>@Model.Item.Place</p>
+        <p>@Model.Item.User</p>
+
+        <a class="btn btn-primary" asp-controller="Home" asp-action="Items">Tillbaka</a>
+
+    }
+</form>
