@@ -28,8 +28,8 @@ namespace Agil.Pages.Website
             var user = _userManager.GetUserAsync(User).Result;
 
             await _websiteHandler.AddItem(user, Item.Id, Item.Title, Item.Description, Item.Category, Item.Price, Item.Place);
-            
-            return RedirectToPage("/Index");
+
+            return RedirectToAction("Items", "Home");
         }
     }
 }
