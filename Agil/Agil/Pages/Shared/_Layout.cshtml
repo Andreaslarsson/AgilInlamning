@@ -18,7 +18,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Agil</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Andreas köp & sälj</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
                         @if (_signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-page="/Home/AddItem">Add Item</a>
+                                <a class="nav-link text-dark" asp-page="/Home/AddItem">Skapa annons</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="Home" asp-action="MyPostedAdvertisement">Mina Annonser</a>
@@ -37,7 +37,7 @@
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Add Item</a>
+                                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Skapa annons</a>
                             </li>
                         }
                         <li class="nav-item">
