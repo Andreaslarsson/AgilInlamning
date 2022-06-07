@@ -1,5 +1,7 @@
-﻿using Agil.Services;
+﻿using Agil.Models;
+using Agil.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Agil.Controllers
 {
@@ -11,9 +13,11 @@ namespace Agil.Controllers
         {
             _websiteHandler = websiteHandler;
         }
-        public IActionResult Items()
+        public async Task<IActionResult> Items(string searchString, string location)
         {
-            return View();
+            var items = await _websiteHandler.GetSearchedItems(searchString, location);
+            
+            return View(items.Items);
         }
         public IActionResult MyPostedAdvertisement(string userId)
         {
