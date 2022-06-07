@@ -16,3 +16,16 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.btn-color {
+    color: #003B73;
+    background-color: #BFD7ED;
+}
+
+.btn-color:hover {
+    background-color: #ffffff;
+}
+
+.title-color {
+    color: #003B73;
+}

@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Agil.Services
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Agil.Models
+@inject UserManager<User> _UserManager
+@inject WebsiteHandler _WebsiteHandler
+
+@model Agil.Models.Item
+
+@{
+    var item = Model;
+}
+
+<div class="text-center mt-5 title-color">
+    <h2>Du har sparat den här annonsen</h2>
+</div>
+
+<div class="card mx-auto d-block mt-5 h-50 w-50 overflow-auto" style="width: 18rem;">
+    <div class="card-body text-center mt-4">
+        <h5 class="card-title title-color">@item.Title</h5>
+        <hr/>
+        <p>@item.Place | @item.Category</p>
+        <p>@item.Description)</p>
+        <p>Pris: @item.Price:-</p>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a asp-page="/Home/ShowItem" class="nav-link link-secondary me-auto d-inline-block border btn-color" asp-route-id="@item.Id">Gå tillbaka</a>
+    <a class="nav-link link-secondary me-auto d-inline-block border btn-color" asp-controller="Home" asp-action="">Kolla på dina sparade annonser</a>
+</div>

@@ -21,5 +21,10 @@ namespace Agil.Pages.Home
         {
             Item = await _websiteHandler.GetSingelItem(id);
         }
+
+          public IActionResult OnPost(int id)
+        {
+            return RedirectToAction("Confirm", "Home", new {id});
+        }
     }
 }

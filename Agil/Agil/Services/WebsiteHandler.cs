@@ -29,10 +29,10 @@ namespace Agil.Services
             await _ctx.SaveChangesAsync();
         }
 
-        public async Task SaveItem(string userId, int itemId)
+        public async Task SaveItem(User userId, Item itemId)
         {
-            var user = await _ctx.Users.FirstAsync(u => u.Id == userId);
-            var item = await _ctx.Items.FirstAsync(i => i.Id == itemId);
+            var user = await _ctx.Users.FirstAsync(u => u.Id == userId.Id);
+            var item = await _ctx.Items.FirstAsync(i => i.Id == itemId.Id);
             user.SavedItems ??= new List<Item>();
             user.SavedItems.Add(item);
             await _ctx.SaveChangesAsync();
