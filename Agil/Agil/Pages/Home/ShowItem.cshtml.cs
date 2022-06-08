@@ -10,7 +10,7 @@ namespace Agil.Pages.Home
     {
         private readonly WebsiteHandler _websiteHandler;
 
-        public ShowItemModel(WebsiteHandler websiteHandler, UserManager<User> userManager)
+        public ShowItemModel(WebsiteHandler websiteHandler)
         {
             _websiteHandler = websiteHandler;
         }

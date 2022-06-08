@@ -78,5 +78,22 @@ namespace Agil.Services
 
             return items;
         }
+
+        public async Task RemoveSavedItem(User user, Item item)
+        {
+            var findItem = await _ctx.Items
+                .Include(x => x.Savedby)
+                .FirstAsync(x => x.Id == item.Id);
+
+            var findUser = await _ctx.Users
+                .Include(x => x.SavedItems)
+                .FirstAsync(x => x.Id == user.Id);
+
+            findItem.Savedby.Remove(findUser);
+
+            findUser.SavedItems.Remove(findItem);
+
+            await _ctx.SaveChangesAsync();
+        }
     }
 }
