@@ -2,9 +2,10 @@
 @inject WebsiteHandler _WebsiteHandler
 @model IEnumerable<Agil.Models.Item>
 
-@{
-    if(Model == null){
-@foreach (var i in Model)
+
+@if(Model.Any())
+{
+    @foreach (var i in Model)
     {
         <div class="list-group w-50 mx-auto m-2">
             <a href="#" class="list-group-item list-group-item-action">
@@ -19,14 +20,15 @@
         </div>
     }
 }
-    else
-    {
-        <div class="card mb-3 mx-auto w-50 text-center" style="border-radius: 15px; width: 500px">
-            <h3 style="margin-top: 25px; margin-bottom: 25px">
-                Sökningen gav tyvärr inga träffar
-            </h3>
-            <a asp-page="/Index" class="btn btn-primary">Sök igen</a>
-            <a asp-controller="Home" asp-action="Items" class="btn btn-primary">Se annonser</a>
+else
+{
+    <div class="card mb-3 mx-auto w-50 text-center" style="border-radius: 15px; width: 500px">
+        <h3 style="margin-top: 25px; margin-bottom: 25px">
+            Sökningen gav tyvärr inga träffar
+        </h3>
+        <div>
+            <a style="margin-top: 25px; margin-bottom: 25px; border-radius: 15px" asp-page="/Index" class="btn btn-primary">Sök igen</a>
+            <a style="margin-top: 25px; margin-bottom: 25px; border-radius: 15px;" asp-controller="Home" asp-action="Items" class="btn btn-primary">Se annonser</a>
         </div>
-    }
+    </div>
 }
