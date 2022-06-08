@@ -5,6 +5,7 @@
 @inject SignInManager<User> _signInManager
 @inject UserManager<User> _userManager
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 @{
     ViewData["Title"] = "Home page";
     var user = _userManager.GetUserName(User);
@@ -35,48 +36,55 @@
 }
 else
 {
-    <div>
-        <h1>Katagorier</h1>
-    </div>
-    <div>
-        <ul class="nav">
-            <li class="nav-item">
-                <img src="favicon.icon"/>
-                <a class="nav-link active" href="#">katagori1</a>
-            </li>
-            <li class="nav-item">
-                <img src="favicon.icon"/>
-                <a class="nav-link" href="#">katagori2</a>
-            </li>
-            <li class="nav-item">
-                <img src="favicon.icon"/>
-                <a class="nav-link" href="#">katagori3</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#"></a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Sök</h5>
-            <a href="#" class="input-group">Gå någonstans</a>
-            <h5 class="card-title">Sök</h5>
-            <a href="#" class="btn btn-primary">Gå någonstans</a>
+    <div class="card mb-3 mx-auto text-center" style="border-radius: 15px; width: 800px">
+        <h1 style="margin-top: 25px; margin-bottom: 25px;">Välkommen till Andreas köp & sälj</h1>
+        <div>
+            <p style="margin-top: 10px; margin-bottom: 15px">
+                Detta är en hemsida för att snabbt och enkelt
+                <br/>
+                köpa och sälja ting över hela landet.
+            </p>
+        
+            <p style="margin-top: 10px; margin-bottom: 15px">
+                Är du ny hos oss?
+                <br/>
+                Bli gärna medlem och få tillgång till
+                <br/>
+                alla våra funktioner på sidan.
+            </p>
+        
+            <p style="margin-top: 10px; margin-bottom: 15px; ">
+                Registrera dig <a asp-area="Identity" asp-page="/Account/Register">här!</a>
+            </p>
+        
+            <p style="margin-top: 10px; margin-bottom: 15px">
+                Vill du bara kika lite på våra användares
+                <br/>
+                annonser så klicka <a asp-controller="Home" asp-action="Items">här!</a>
+            </p>
+        
+            <p style="margin-top: 10px; margin-bottom: 15px">
+                Hoppas du gillar sidan och att du får en fin 
+                <br/>
+                upplevelse.
+            </p>
+        
+            <p style="margin-top: 10px; margin-bottom: 15px">
+                Har du några frågor eller funderingar så tveka 
+                <br/>
+                inte att kontakta oss <a href="mailto:KopochSalj@live.com" title="glorythemes">här!</a>
+            </p>
+        
+            <p style="margin-top: 10px; margin-bottom: 25px">
+                MVH
+                <br/>
+                Vi på Andreas köp & sälj AB
+            </p>
         </div>
     </div>
 
-    <div>
-        <h1>Registera dig</h1>
-        <a class="btn btn-primary" id="register" asp-area="Identity" asp-page="/Account/Register">Registera dig</a>
-    
-    </div>
-    <div>
-        <h1>---Plats för Annons----</h1>
-    </div>
-}
+    }
+
 
 
 
