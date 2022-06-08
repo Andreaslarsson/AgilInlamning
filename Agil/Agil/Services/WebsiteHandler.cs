@@ -68,5 +68,15 @@ namespace Agil.Services
                 .FirstAsync(x => x.Id == id);
             return x;
         }
+        public async Task<List<Item>> AllSavedItemsForUser(User user)
+        {
+            var getUser = await _ctx.Users
+                .Include(x => x.SavedItems)
+                .FirstAsync(x => x.Id == user.Id);
+
+            var items = getUser.SavedItems.ToList();
+
+            return items;
+        }
     }
 }

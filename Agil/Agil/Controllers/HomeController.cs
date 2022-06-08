@@ -32,5 +32,12 @@ namespace Agil.Controllers
 
             return View(i);
         }
+        public IActionResult Saved()
+        {
+            var user = _websiteHandler.GetThisUser(_userManager.GetUserId(User));
+            var items = _websiteHandler.AllSavedItemsForUser(user).Result;
+
+            return View(items);
+        }
     }
 }
