@@ -2,21 +2,29 @@
 @inject WebsiteHandler _WebsiteHandler
 @model IEnumerable<Agil.Models.Item>
 
-
+<div class="text-center mt-5 title-color mb-5">
+    <h2 class="display-5">Annonser</h2>
+</div>
 @if(Model.Any())
 {
     @foreach (var i in Model)
     {
-        <div class="list-group w-50 mx-auto m-2">
-            <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between mb-2">
-                    <small>@i.Category - @i.Place</small>
+        <div class="card mb-3 mx-auto w-50"style="border-radius: 15px; background-color: white">
+            <div class="row g-0">
+                <div class="col-md-4" style="display: flex; justify-content: center; align-content: center">
+                    <img src="https://alphapartners.lv/wp-content/themes/consultix/images/no-image-found-360x260.png" class="card-img-left" alt="Bild på det som säljes/köpes" style="border-radius: 15px; margin: auto; width: 100%;">
                 </div>
-                <h5 class="mb-2">@i.Title</h5>
-                <p class="mb-1">Pris: @i.Price:-</p> 
-                
-                <a asp-page="/Home/ShowItem" class="btn btn-primary" asp-route-id="@i.Id">More Info</a>
-            </a>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="d-flex w-100 justify-content-between mb-2">
+                            <small>@i.Category - @i.Place</small>
+                        </div>
+                        <h5 class="mb-2">@i.Title</h5>
+                        <p class="mb-1">Pris: @i.Price:-</p>
+                        <a style="margin-top: 15px; border-radius: 15px" asp-page="/Home/ShowItem" class="btn btn-primary" asp-route-id="@i.Id">Läs mer...</a>
+                    </div>
+                </div>
+            </div>
         </div>
     }
 }
