@@ -1,4 +1,9 @@
 ﻿@page
+@inject SignInManager<User> _signInManager
+
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Agil.Models
 @model Agil.Pages.Home.ShowItemModel
 
 <form method="Post">
@@ -12,6 +17,31 @@
         <p>@Model.Item.User</p>
 
         <a class="btn btn-primary" asp-controller="Home" asp-action="Items">Tillbaka</a>
-        <input class="btn btn-primary" type="submit" value="Spara"/>
+
+        @if (_signInManager.IsSignedIn(User))
+        {
+            <input class="btn btn-primary" type="submit" value="Spara"/>
+        }
+        else
+        {
+            <a class="btn btn-primary shadow-none" style="width: 85px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Spara</a>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="d-flex justify-content-center pt-3">
+                            <h5 id="exampleModalLabel">Spara annons</h5>
+                        </div>
+                        <div class="modal-body text-center pb-4">
+                            Du måste logga in för att spara en annons.
+                        </div>
+                        <div class="text-center pb-3">
+                            <button type="button" class="btn btn-outline-secondary shadow-none" data-bs-dismiss="modal" style="border-radius: 15px;">Stäng</button>
+                            <a class="btn btn-outline-secondary shadow-none" asp-area="Identity" asp-page="/Account/Login" style="border-radius: 15px;">Logga in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
     }
 </form>
