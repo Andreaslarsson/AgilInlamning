@@ -37,6 +37,7 @@ namespace Agil.Services
                     Category = "För hemmet",
                     Place = "Stockholm",
                     Price = 3000,
+                    CreatedDate = DateTime.Now.AddDays(-5),
                     User = testUser
                 },
                 new Item()
@@ -47,6 +48,7 @@ namespace Agil.Services
                     Category = "Elektronik",
                     Place = "Göteborg",
                     Price = 4000,
+                    CreatedDate = DateTime.Now.AddDays(-20),
                     User = testUser
                 },
             };
