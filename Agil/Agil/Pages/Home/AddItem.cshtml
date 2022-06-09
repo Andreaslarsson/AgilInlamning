@@ -10,7 +10,7 @@
 
 @if (_signInManager.IsSignedIn(User))
 {
-    <form class="w-50 mx-auto border mt-4 mb-4 p-3" method="post">
+    <form class="w-50 mx-auto border mt-4 mb-4 p-3" style="border-radius: 15px; background-color: white" method="post">
         <div class="form-group">
             <label asp-for="Item.Title">Titel</label>
             <input asp-for="Item.Title" type="text" class="form-control shadow-none border-secondary" placeholder="Titel">
@@ -49,7 +49,10 @@
             <label asp-for="Item.Price">Pris</label>
             <input asp-for="Item.Price" type="text" class="form-control shadow-none border-secondary" placeholder="Pris">
         </div>
-        <button type="submit" class="btn btn-secondary mt-2">Lägg upp annons</button>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-2" style="border-radius: 15px;">Lägg upp annons</button>
+        </div>
+        
     </form> 
 }
 else
