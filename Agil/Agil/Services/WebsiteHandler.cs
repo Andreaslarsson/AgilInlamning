@@ -31,10 +31,10 @@ namespace Agil.Services
             await _ctx.SaveChangesAsync();
         }
 
-        public async Task SaveItem(string userId, int itemId)
+        public async Task SaveItem(User userId, Item itemId)
         {
-            var user = await _ctx.Users.FirstAsync(u => u.Id == userId);
-            var item = await _ctx.Items.FirstAsync(i => i.Id == itemId);
+            var user = await _ctx.Users.FirstAsync(u => u.Id == userId.Id);
+            var item = await _ctx.Items.FirstAsync(i => i.Id == itemId.Id);
             user.SavedItems ??= new List<Item>();
             user.SavedItems.Add(item);
             await _ctx.SaveChangesAsync();
@@ -68,6 +68,33 @@ namespace Agil.Services
             var x = await _ctx.Items
                 .FirstAsync(x => x.Id == id);
             return x;
+        }
+        public async Task<List<Item>> AllSavedItemsForUser(User user)
+        {
+            var getUser = await _ctx.Users
+                .Include(x => x.SavedItems)
+                .FirstAsync(x => x.Id == user.Id);
+
+            var items = getUser.SavedItems.ToList();
+
+            return items;
+        }
+
+        public async Task RemoveSavedItem(User user, Item item)
+        {
+            var findItem = await _ctx.Items
+                .Include(x => x.Savedby)
+                .FirstAsync(x => x.Id == item.Id);
+
+            var findUser = await _ctx.Users
+                .Include(x => x.SavedItems)
+                .FirstAsync(x => x.Id == user.Id);
+
+            findItem.Savedby.Remove(findUser);
+
+            findUser.SavedItems.Remove(findItem);
+
+            await _ctx.SaveChangesAsync();
         }
         public async Task<ItemLocation> GetSearchedItems(string searchString, string location)
         {

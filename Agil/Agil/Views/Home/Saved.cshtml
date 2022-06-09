@@ -1,0 +1,36 @@
+﻿@model List<Agil.Models.Item>
+@{
+    var savedItems = Model;
+}
+
+<div class="text-center mt-5 title-color mb-5">
+    <h2 class="display-5">Sparade annonser</h2>
+</div>
+
+@if (savedItems.Count != 0)
+{
+    @foreach (var i in savedItems)
+    {
+        <div class="list-group w-50 mx-auto m-2" style="border-radius: 15px;">
+            <div class="list-group-item list-group-item-action">
+
+                <div class="d-flex justify-content-start">
+                    <small class="fw-light">@i.Category - @i.Place</small>
+                    <div class="d-flex ms-auto justify-content-end">
+                        <a class="btn btn-outline-secondary btn-sm btn-color shadow-none" asp-page="/Home/DeleteSavedItem" asp-route-id="@i.Id" title="Radera" style="border-radius: 50%; height: 30px; color: #BFD7ED;"><i class="bi bi-x-lg" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <a asp-page="/Home/ShowItem" asp-route-id="@i.Id" title="Klicka för mer info" style="text-decoration: none;">
+                    <h5 class="mb-2 link-dark fw-normal">@i.Title</h5>
+                </a>
+                <p class="mb-1">Pris: @i.Price:-</p>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="text-center mt-5 title-color mb-5">
+        <h4 class="lead">Du har inga sparade annonser</h4>
+    </div>
+}

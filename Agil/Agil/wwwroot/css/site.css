@@ -14,5 +14,18 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.btn-color {
+    color: #ffffff;
+    background-color: #003B73
+}
+
+.btn-color:hover {
+    background-color: #ffffff;
+}
+
+.title-color {
+    color: #003B73;
 }
