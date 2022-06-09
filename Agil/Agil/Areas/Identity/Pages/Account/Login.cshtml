@@ -6,6 +6,7 @@
         <section class="text-center">
             <form id="account" method="post">
                 <h2 style="margin: 5%">Logga in</h2>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-floating" style="width: 50%; margin: auto">
                     <input  asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true"/>
                     <label asp-for="Input.Email" class="form-label"></label>
