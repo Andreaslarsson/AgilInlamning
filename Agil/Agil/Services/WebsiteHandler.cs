@@ -1,6 +1,8 @@
 ﻿using Agil.Data;
 using Agil.Models;
+using Agil.Pages.Areas.Identity.Pages.Account;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Agil.Services
@@ -38,10 +40,9 @@ namespace Agil.Services
             await _ctx.SaveChangesAsync();
         }
 
-        public List<Item> GetAllItems()
+        public IQueryable<Item> GetAllItems()
         {
-            var itemList =  _ctx.Items
-                .ToList();
+            var itemList =  _ctx.Items;
 
             return itemList;
         }
@@ -94,6 +95,29 @@ namespace Agil.Services
             findUser.SavedItems.Remove(findItem);
 
             await _ctx.SaveChangesAsync();
+        }
+        public async Task<ItemLocation> GetSearchedItems(string searchString, string location)
+        {
+            IQueryable<string> locationQuery = from i in _ctx.Items orderby i.Place select i.Place;
+
+            var items = from i in _ctx.Items
+                select i;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                items = items.Where(s => s.Title!.Contains(searchString));
+            }
+            if (!string.IsNullOrEmpty(location))
+            {
+                items = items.Where(s => s.Place!.Contains(location));
+            }
+            var itemLocation = new ItemLocation()
+            {
+                Locations = new SelectList(await locationQuery.Distinct().ToListAsync()),
+                Items = await items.ToListAsync()
+            };
+
+            return itemLocation;
         }
     }
 }
