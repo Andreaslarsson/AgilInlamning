@@ -17,15 +17,15 @@
         <p>Publiserades: @Model.Item.CreatedDate.ToString("dd'/'MM'-'yyyy")</p>
         <p>@Model.Item.User</p>
 
-        <a class="btn btn-primary" asp-controller="Home" asp-action="Items">Tillbaka</a>
+        <a class="nav-link link-secondary me-auto d-inline-block border btn-color" style="border-radius: 15px;" asp-controller="Home" asp-action="Items">Tillbaka</a>
 
         @if (_signInManager.IsSignedIn(User))
         {
-            <input class="btn btn-primary" type="submit" value="Spara"/>
+            <input class="nav-link link-secondary me-auto d-inline-block border btn-color" style="border-radius: 15px;" type="submit" value="Spara"/>
         }
         else
         {
-            <a class="btn btn-primary shadow-none" style="width: 85px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Spara</a>
+            <a class="nav-link link-secondary me-auto d-inline-block border btn-color" style="width: 85px; border-radius: 15px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Spara</a>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -37,8 +37,8 @@
                             Du måste logga in för att spara en annons.
                         </div>
                         <div class="text-center pb-3">
-                            <button type="button" class="btn btn-outline-secondary shadow-none" data-bs-dismiss="modal" style="border-radius: 15px;">Stäng</button>
-                            <a class="btn btn-outline-secondary shadow-none" asp-area="Identity" asp-page="/Account/Login" style="border-radius: 15px;">Logga in</a>
+                            <button type="button" class="nav-link link-secondary me-auto d-inline-block border btn-color" data-bs-dismiss="modal" style="border-radius: 15px;">Stäng</button>
+                            <a class="nav-link link-secondary me-auto d-inline-block border btn-color" asp-area="Identity" asp-page="/Account/Login" style="border-radius: 15px;">Logga in</a>
                         </div>
                     </div>
                 </div>
