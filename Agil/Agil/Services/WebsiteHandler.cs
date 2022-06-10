@@ -15,7 +15,7 @@ namespace Agil.Services
             _ctx = ctx;
         }
 
-        public async Task AddItem(User user, int itemId, string title, string description, string category, int price, string place, DateTime? createdDate)
+        public async Task AddItem(User user, int itemId, string title, string description, string category, int price, string place, DateTime createdDate)
         {
             _ctx.Items.Add(new Item()
             {
@@ -25,7 +25,7 @@ namespace Agil.Services
                 Place = place,
                 Price = price,
                 Category = category,
-                CreatedDate = createdDate ?? DateTime.Now,
+                CreatedDate = DateTime.Today,
                 User = user
             });
 
