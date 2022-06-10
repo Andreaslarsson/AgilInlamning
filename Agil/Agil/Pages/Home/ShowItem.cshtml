@@ -6,42 +6,85 @@
 @using Agil.Models
 @model Agil.Pages.Home.ShowItemModel
 
+@{
+    var item = Model;
+}
+
 <form method="Post">
     @if (HttpContext.Request.Method == "GET")
     {
-        <h1>@Model.Item.Title</h1>
-        <p>@Model.Item.Category</p>
-        <p>@Model.Item.Description</p>
-        <p>@Model.Item.Place</p>
-        <p>@Model.Item.Place</p>
-        <p>@Model.Item.User</p>
 
-        <a class="btn btn-primary" asp-controller="Home" asp-action="Items">Tillbaka</a>
-
-        @if (_signInManager.IsSignedIn(User))
-        {
-            <input class="btn btn-primary" type="submit" value="Spara"/>
-        }
-        else
-        {
-            <a class="btn btn-primary shadow-none" style="width: 85px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Spara</a>
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="d-flex justify-content-center pt-3">
-                            <h5 id="exampleModalLabel">Spara annons</h5>
-                        </div>
-                        <div class="modal-body text-center pb-4">
-                            Du måste logga in för att spara en annons.
-                        </div>
-                        <div class="text-center pb-3">
-                            <button type="button" class="btn btn-outline-secondary shadow-none" data-bs-dismiss="modal" style="border-radius: 15px;">Stäng</button>
-                            <a class="btn btn-outline-secondary shadow-none" asp-area="Identity" asp-page="/Account/Login" style="border-radius: 15px;">Logga in</a>
-                        </div>
+        <div class="card mx-auto d-block mt-5 h-50 w-50 overflow-auto" style="width: 18rem; border-radius: 15px">
+            
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://semantic-ui.com/images/wireframe/image.png" class="d-block w-100 p-3" alt="...">
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-        }
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-start">
+                    <i class="bi bi-calendar-event pe-2"></i>
+                    <small class=" card-title fw-light"></small>
+                    <div class="d-flex ms-auto justify-content-end">
+                        @if (_signInManager.IsSignedIn(User))
+                        {
+                            <input class="btn btn-outline-secondary btn-color btn-sm shadow-none" style="border-radius: 15px;" type="submit" value="Spara">
+                        }
+                        else
+                        {
+                            <a class="btn btn-outline-secondary btn-color btn-sm shadow-none"  style="border-radius: 15px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Spara</a>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="d-flex justify-content-center pt-3">
+                                            <h5 id="exampleModalLabel">Spara annons</h5>
+                                        </div>
+                                        <div class="modal-body text-center pb-4">
+                                            Du måste logga in för att spara en annons.
+                                        </div>
+                                        <div class="text-center pb-3">
+                                            <button type="button" class="btn btn-outline-secondary shadow-none" data-bs-dismiss="modal" style="border-radius: 15px;">Stäng</button>
+                                            <a class="btn btn-outline-secondary shadow-none" asp-area="Identity" asp-page="/Account/Login" style="border-radius: 15px;">Logga in</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start mb-3">
+                    <i class="bi bi-geo-alt"><small class=" card-title fw-light ps-2">@item.Item.Place</small></i>
+                    
+                </div>
+
+                <h5 class="card-title title-color">@Model.Item.Title</h5>
+                <p>Pris: @Model.Item.Price:-</p>
+                <hr/>
+
+                <div class="d-flex justify-content-start">
+                    <p class="fw-light">Säljs av: @Model.Item.User.UserName</p>
+                    <div class="d-flex ms-auto justify-content-end">
+                        <a class="btn btn-outline-secondary btn-color btn-sm shadow-none" style="height: 33px; border-radius: 15px;"><i class="bi bi-envelope pe-2"></i>Skicka meddelande</a>
+                    </div>
+                </div>
+                <hr/>
+                <p>@Model.Item.Description</p>
+            </div>
+        </div>
+
+       
     }
 </form>
