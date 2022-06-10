@@ -67,6 +67,7 @@ namespace Agil.Services
         public async Task<Item> GetSingelItem(int id)
         {
             var x = await _ctx.Items
+                .Include(x=> x.User)
                 .FirstAsync(x => x.Id == id);
             return x;
         }

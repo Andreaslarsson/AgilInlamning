@@ -22,9 +22,10 @@ body {
     background-color: #003B73
 }
 
-.btn-color:hover {
-    background-color: #ffffff;
-}
+    .btn-color:hover {
+        background-color: #ffffff;
+        color: #003B73
+    }
 
 .title-color {
     color: #003B73;
