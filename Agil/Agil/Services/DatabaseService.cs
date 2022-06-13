@@ -35,7 +35,7 @@ namespace Agil.Services
                     Description =
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                     Category = "För hemmet",
-                    Place = "Stockholm",
+                    Place = "Norrland",
                     Price = 3000,
                     CreatedDate = DateTime.Now.AddDays(-5),
                     User = testUser
@@ -46,7 +46,18 @@ namespace Agil.Services
                     Description =
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                     Category = "Elektronik",
-                    Place = "Göteborg",
+                    Place = "Svealand",
+                    Price = 4000,
+                    CreatedDate = DateTime.Now.AddDays(-20),
+                    User = testUser
+                },
+                new Item()
+                {
+                    Title = "Iphone 11 Pro",
+                    Description =
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    Category = "Elektronik",
+                    Place = "Götaland",
                     Price = 4000,
                     CreatedDate = DateTime.Now.AddDays(-20),
                     User = testUser
