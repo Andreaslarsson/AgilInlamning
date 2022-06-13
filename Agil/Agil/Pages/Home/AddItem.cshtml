@@ -7,10 +7,13 @@
 @model Agil.Pages.Website.AddItemModel
 @{
 }
-
+<div class="text-center mt-5 title-color mb-5">
+    <h2 class="display-5">Skapa annons</h2>
+</div>
 @if (_signInManager.IsSignedIn(User))
 {
     <form class="w-50 mx-auto border mt-4 mb-4 p-3" style="border-radius: 15px; background-color: white" method="post">
+        
         <div class="form-group">
             <label asp-for="Item.Title">Titel</label>
             <input asp-for="Item.Title" type="text" class="form-control shadow-none border-secondary" placeholder="Titel">
@@ -49,10 +52,11 @@
             <label asp-for="Item.Price">Pris</label>
             <input asp-for="Item.Price" type="text" class="form-control shadow-none border-secondary" placeholder="Pris">
         </div>
+
         <div class="text-center">
-            <button type="submit" class="btn btn-primary mt-2" style="border-radius: 15px;">Lägg upp annons</button>
+            <button type="submit" class="nav-link link-secondary me-auto d-inline-block border btn-color" style="margin-top: 10px; border-radius: 15px;">Lägg upp annons</button>
         </div>
-        
+
     </form> 
 }
 else

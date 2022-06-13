@@ -21,7 +21,10 @@
                         </div>
                         <h5 class="mb-2">@i.Title</h5>
                         <p class="mb-1">Pris: @i.Price:-</p>
-                        <a style="margin-top: 15px; border-radius: 15px" asp-page="/Home/ShowItem" class="btn btn-primary" asp-route-id="@i.Id">Läs mer...</a>
+                        <div class="d-flex ms-auto justify-content-start">
+                            <a style="margin-top: 15px; border-radius: 15px" asp-page="/Home/ShowItem" class="nav-link link-secondary me-auto d-inline-block border btn-color" asp-route-id="@i.Id">Läs mer...</a>
+                            <p class="card-text fw-light d-flex justify-content-end" style="position: absolute; right: 16px; bottom: 8px;"><small class="text-muted">Publicerades: @i.CreatedDate.ToString("dd'/'MM'-'yyyy")</small></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,8 +38,8 @@ else
             Sökningen gav tyvärr inga träffar
         </h3>
         <div>
-            <a style="margin-top: 25px; margin-bottom: 25px; border-radius: 15px" asp-page="/Index" class="btn btn-primary">Sök igen</a>
-            <a style="margin-top: 25px; margin-bottom: 25px; border-radius: 15px;" asp-controller="Home" asp-action="Items" class="btn btn-primary">Se annonser</a>
+            <a style="margin-top: 25px; margin-bottom: 25px; border-radius: 15px" asp-page="/Index" class="nav-link link-secondary me-auto d-inline-block border btn-color">Sök igen</a>
+            <a style="margin-top: 25px; margin-bottom: 25px; border-radius: 15px;" asp-controller="Home" asp-action="Items" class="nav-link link-secondary me-auto d-inline-block border btn-color">Se annonser</a>
         </div>
     </div>
 }
