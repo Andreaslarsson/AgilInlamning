@@ -27,7 +27,7 @@ namespace Agil.Pages.Website
         {
             var user = _userManager.GetUserAsync(User).Result;
 
-            await _websiteHandler.AddItem(user, Item.Id, Item.Title, Item.Description, Item.Category, Item.Price, Item.Place);
+            await _websiteHandler.AddItem(user, Item.Id, Item.Title, Item.Description, Item.Category, Item.Price, Item.Place, Item.CreatedDate);
 
             return RedirectToAction("Items", "Home");
         }

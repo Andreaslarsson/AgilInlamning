@@ -15,7 +15,7 @@ namespace Agil.Services
             _ctx = ctx;
         }
 
-        public async Task AddItem(User user, int itemId, string title, string description, string category, int price, string place)
+        public async Task AddItem(User user, int itemId, string title, string description, string category, int price, string place, DateTime createdDate)
         {
             _ctx.Items.Add(new Item()
             {
@@ -25,6 +25,7 @@ namespace Agil.Services
                 Place = place,
                 Price = price,
                 Category = category,
+                CreatedDate = DateTime.Today,
                 User = user
             });
 
@@ -108,7 +109,11 @@ namespace Agil.Services
             {
                 items = items.Where(s => s.Title!.Contains(searchString));
             }
-            if (!string.IsNullOrEmpty(location))
+            if (location == "*Hela Sverige*")
+            {
+                items = items.Where(s => s.Place == "Norrland" || s.Place == "Svealand" || s.Place == "Götaland");
+            }
+            else if (!string.IsNullOrEmpty(location))
             {
                 items = items.Where(s => s.Place!.Contains(location));
             }
