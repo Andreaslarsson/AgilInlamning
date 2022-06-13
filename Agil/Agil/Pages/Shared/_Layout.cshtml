@@ -46,13 +46,11 @@
                     </div>
                 </div>
                 <div class="col-md-2 align-self-center text-center">
-                    <div>
-                        <a class="fw-bold title-color text-decoration-none fs-4" asp-area="" asp-page="/Index">Andreas köp & sälj</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
+                    <a class="fw-bold title-color text-decoration-none fs-4" asp-area="" asp-page="/Index">Andreas köp & sälj</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
                 <div class="col-md-4">
                     @if (_signInManager.IsSignedIn(User))
