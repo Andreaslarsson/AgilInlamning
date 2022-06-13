@@ -109,7 +109,11 @@ namespace Agil.Services
             {
                 items = items.Where(s => s.Title!.Contains(searchString));
             }
-            if (!string.IsNullOrEmpty(location))
+            if (location == "*Hela Sverige*")
+            {
+                items = items.Where(s => s.Place == "Norrland" || s.Place == "Svealand" || s.Place == "Götaland");
+            }
+            else if (!string.IsNullOrEmpty(location))
             {
                 items = items.Where(s => s.Place!.Contains(location));
             }
