@@ -41,9 +41,17 @@ body {
     z-index: 1030;
 }
 .spacer {
-    margin-bottom: 300px; /* how high is your footer */
+    margin-bottom: 300px; 
     
 }
 ul {
     list-style: none;
 }
+
+.flexbox1{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+}
+
+ 
