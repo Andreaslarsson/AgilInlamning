@@ -37,7 +37,7 @@ namespace Agil.Controllers
                 ViewBag.Category = category;
             }
 
-            var items = await _websiteHandler.GetSearchedItems(searchString, location, category);
+            var items = _websiteHandler.GetSearchedItems(searchString, location, category);
 
             switch (sortOrder)
             {
