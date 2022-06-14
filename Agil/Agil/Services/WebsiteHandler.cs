@@ -98,7 +98,7 @@ namespace Agil.Services
 
             await _ctx.SaveChangesAsync();
         }
-        public async Task<IQueryable<Item>> GetSearchedItems(string searchString, string location, string category)
+        public Task<IQueryable<Item>> GetSearchedItems(string searchString, string location, string category)
         {
             var items = from i in _ctx.Items
                 select i;
