@@ -37,8 +37,7 @@ namespace Agil.Controllers
                 ViewBag.Category = category;
             }
 
-            var items = await _websiteHandler.GetSearchedItems(searchString, location,  sortOrder, category);
-
+            var items = await _websiteHandler.GetSearchedItems(searchString, location, category);
 
             switch (sortOrder)
             {
@@ -55,7 +54,6 @@ namespace Agil.Controllers
                     items = items.OrderBy(s => s.CreatedDate);
                     break;
             }
-
             return View(items.ToList());
         }
         public IActionResult MyPostedAdvertisement(string userId)
