@@ -6,25 +6,27 @@
     var item = Model;
 }
 
-<div class="text-center mt-5 title-color">
+<div class="text-center mt-5 title-color mb-4">
     <h2 class="display-5">Radera annons</h2>
     <h5 class="fw-light">Är du säker på att du vill radera den här annonsen från dina sparade annonser?</h5>
 </div>
 
-<form method="post">
-    <div class="text-center mt-4">
-        <a class="nav-link link-secondary me-auto d-inline-block border btn-color" style="border-radius: 15px" asp-controller="Home" asp-action="Saved">Gå tillbaka</a>
-        <input type="submit" value="Radera" class="nav-link link-secondary me-auto d-inline-block border btn-color" style="border-radius: 15px"/>
-    </div>
-</form>
-
 <div class="card mx-auto d-block mt-3 h-50 w-50 overflow-auto" style="width: 18rem; border-radius: 15px">
     <div class="card-body text-center mt-4">
-        <h5 class="card-title title-color">@item.Item.Title</h5>
+        <div class=" d-flex justify-content-center mt-3" >
+            <img src="https://semantic-ui.com/images/wireframe/image.png" class="w-50 p-3" alt="...">
+        </div>
+        <h5 class="card-title title-color fw-normal">@item.Item.Title</h5>
         <hr/>
         <p class="fw-light">@item.Item.Place | @item.Item.Category</p>
-        <p>@item.Item.Description)</p>
+        <p class="fw-normal">@item.Item.Description</p>
         <p>Pris: @item.Item.Price:-</p>
     </div>
+    <form method="post">
+        <div class="text-center mb-4">
+            <a class="nav-link link-secondary me-auto d-inline-block border btn-color" style="border-radius: 15px" asp-controller="Home" asp-action="Saved">Gå tillbaka</a>
+            <input type="submit" value="Radera" class="nav-link link-secondary me-auto d-inline-block border btn-color" style="border-radius: 15px"/>
+        </div>
+    </form>
 </div>
 

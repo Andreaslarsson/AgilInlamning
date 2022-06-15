@@ -13,10 +13,6 @@ html {
   min-height: 100%;
 }
 
-body {
-    margin-bottom: 60px;
-}
-
 .btn-color {
     color: #ffffff;
     background-color: #003B73
@@ -29,4 +25,42 @@ body {
 
 .title-color {
     color: #003B73;
+}
+
+.Baby-Blue {
+    background-color: #BFD7ED;
+}
+
+.Blue-Grotto {
+    background-color: #60A3D9;
+}
+
+.Royal-Blue {
+    background-color: #0074B7;
+}
+
+.Navy-Blue {
+    background-color: #003B73;
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.spacer {
+    margin-bottom: 300px;
+}
+
+ul {
+    list-style: none;
+}
+
+.flexbox1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

@@ -1,12 +1,62 @@
 ﻿@using Agil.Services
 @inject WebsiteHandler _WebsiteHandler
 @model IEnumerable<Agil.Models.Item>
-
 <div class="text-center mt-5 title-color mb-5">
     <h2 class="display-5">Annonser</h2>
 </div>
 @if(Model.Any())
 {
+    <div class="container w-50 bg-light py-1 my-2" style="border-radius: 15px;">
+        <div class="row">
+            <div class="col">
+                <form method="post" asp-controller="Home" asp-action="Items">
+                    <div class="row mb-1">
+                        <div class="text-center col justify-content-center align-content-center" style="border: solid; border-radius: 20px;">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <input type="text" placeholder="Vad vill du söka efter?" style="border: none; width: 90%" name="searchString" class="">
+                        </div>
+                    </div>
+                    <div class="row justify-content-around mb-1">
+                        <select class="form-select shadow-none border-secondary text-center col" style="border-radius: 10px;" name="location">
+                            <option>*Hela Sverige*</option>
+                            <option>Svealand</option>
+                            <option>Götaland</option>
+                            <option>Norrland</option>
+                        </select>
+                        <select class="form-select shadow-none border-secondary text-center col" style="border-radius: 10px;" name="category">
+                            <option>Alla kategorier</option>
+                            <option>Jobb</option>
+                            <option>Fordon</option>
+                            <option>För hemmet</option>
+                            <option>Bostad</option>
+                            <option>Personligt</option>
+                            <option>Elektronik</option>
+                            <option>Fritid & hobby</option>
+                            <option>Affärsverksamhet</option>
+                            <option>Övrigt</option>
+                        </select>
+                    </div>
+                    <div class="row justify-content-center mb-1">
+                        <input class="btn-color rounded-pill col-3" type="submit" value="Sök"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span class="fw-bold">
+                    Sortera:
+                </span>
+                <span>
+                    @Html.ActionLink("Pris", "Items", new {sortOrder = ViewBag.PriceSortParm, searchString = ViewBag.SearchString, location = ViewBag.Location, category = ViewBag.Category})
+                </span>
+                <span>
+                    @Html.ActionLink("Datum", "Items", new {sortOrder = ViewBag.DateSortParm, searchString = ViewBag.SearchString, location = ViewBag.Location, category = ViewBag.Category})
+                </span>
+            </div>
+        </div>
+    </div>
+
     @foreach (var i in Model)
     {
         <div class="card mb-3 mx-auto w-50"style="border-radius: 15px; background-color: white">
@@ -19,8 +69,8 @@
                         <div class="d-flex w-100 justify-content-between mb-2">
                             <small>@i.Category - @i.Place</small>
                         </div>
-                        <h5 class="mb-2">@i.Title</h5>
-                        <p class="mb-1">Pris: @i.Price:-</p>
+                        <h5 class="mb-2 fw-normal">@i.Title</h5>
+                        <p class="mb-1 fw-normal">Pris: @i.Price:-</p>
                         <div class="d-flex ms-auto justify-content-start">
                             <a style="margin-top: 15px; border-radius: 15px" asp-page="/Home/ShowItem" class="nav-link link-secondary me-auto d-inline-block border btn-color" asp-route-id="@i.Id">Läs mer...</a>
                             <p class="card-text fw-light d-flex justify-content-end" style="position: absolute; right: 16px; bottom: 8px;"><small class="text-muted">Publicerades: @i.CreatedDate.ToString("dd'/'MM'-'yyyy")</small></p>
