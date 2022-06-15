@@ -98,10 +98,8 @@ namespace Agil.Services
 
             await _ctx.SaveChangesAsync();
         }
-        public async Task<ItemLocation> GetSearchedItems(string searchString, string location)
+        public IQueryable<Item> GetSearchedItems(string searchString, string location, string category)
         {
-            IQueryable<string> locationQuery = from i in _ctx.Items orderby i.Place select i.Place;
-
             var items = from i in _ctx.Items
                 select i;
 
@@ -109,21 +107,21 @@ namespace Agil.Services
             {
                 items = items.Where(s => s.Title!.Contains(searchString));
             }
-            if (location == "*Hela Sverige*")
+            if (!string.IsNullOrEmpty(location) && location != "*Hela Sverige*")
             {
-                items = items.Where(s => s.Place == "Norrland" || s.Place == "Svealand" || s.Place == "Götaland");
-            }
-            else if (!string.IsNullOrEmpty(location))
-            {
-                items = items.Where(s => s.Place!.Contains(location));
-            }
-            var itemLocation = new ItemLocation()
-            {
-                Locations = new SelectList(await locationQuery.Distinct().ToListAsync()),
-                Items = await items.ToListAsync()
-            };
 
-            return itemLocation;
+                items = items.Where(s => s.Place!.Contains(location));
+
+            }
+            if (!string.IsNullOrEmpty(category))
+            {
+                if(category != "Alla kategorier")
+                {
+                    items = items.Where(s => s.Category!.Contains(category));
+                }
+            }
+
+            return items;
         }
     }
 }
