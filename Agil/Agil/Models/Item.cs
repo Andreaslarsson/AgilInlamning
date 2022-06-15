@@ -8,6 +8,7 @@ public class Item
     public string Category { get; set; }
     public int Price { get; set; }
     public string Place { get; set; }
+    public DateTime CreatedDate { get; set; }
 
     public virtual User? User { get; set; }
     public ICollection<User>? Savedby { get; set; }

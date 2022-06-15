@@ -49,6 +49,7 @@ namespace Agil.Pages.Home
             }
 
             _context.Attach(Item).State = EntityState.Modified;
+            _context.Entry(Item).Property(o => o.CreatedDate).IsModified = false;
 
             try
             {

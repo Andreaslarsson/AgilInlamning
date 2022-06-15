@@ -10,7 +10,7 @@ namespace Agil.Pages.Home
     {
         private readonly WebsiteHandler _websiteHandler;
 
-        public ShowItemModel(WebsiteHandler websiteHandler, UserManager<User> userManager)
+        public ShowItemModel(WebsiteHandler websiteHandler)
         {
             _websiteHandler = websiteHandler;
         }
@@ -20,6 +20,11 @@ namespace Agil.Pages.Home
         public async Task OnGet(int id)
         {
             Item = await _websiteHandler.GetSingelItem(id);
+        }
+
+          public IActionResult OnPost(int id)
+        {
+            return RedirectToAction("Confirm", "Home", new {id});
         }
     }
 }

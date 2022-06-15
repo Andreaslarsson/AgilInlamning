@@ -7,49 +7,56 @@
 @model Agil.Pages.Website.AddItemModel
 @{
 }
-
+<div class="text-center mt-5 title-color mb-5">
+    <h2 class="display-5">Skapa annons</h2>
+</div>
 @if (_signInManager.IsSignedIn(User))
 {
-    <form class="w-50 mx-auto border mt-4 mb-4 p-3" method="post">
+    <form class="w-50 mx-auto border mt-4 mb-4 p-3" style="border-radius: 15px; background-color: white" method="post">
+        
         <div class="form-group">
             <label asp-for="Item.Title">Titel</label>
-            <input asp-for="Item.Title" type="text" class="form-control shadow-none border-secondary" placeholder="Titel">
+            <input asp-for="Item.Title" type="text" class="form-control shadow-none border-secondary" placeholder="Titel" required>
         </div>
         <div class="form-group">
             <label asp-for="Item.Description">Beskrivning</label>
-            <textarea asp-for="Item.Description" type="text" class="form-control shadow-none border-secondary" placeholder="Beskrivning"></textarea>
+            <textarea asp-for="Item.Description" type="text" class="form-control shadow-none border-secondary" placeholder="Beskrivning"  required></textarea>
         </div>
         <div class="row">
             <div class="col">
                 <label asp-for="Item.Category">Kategori</label>
-                <select asp-for="Item.Category" class="form-select shadow-none border-secondary">
-                    <option selected>Välj...</option>
-                    <option>Jobb</option>
-                    <option>Fordon</option>
-                    <option>För hemmet</option>
-                    <option>Bostad</option>
-                    <option>Personligt</option>
-                    <option>Elektronik</option>
-                    <option>Fritid & hobby</option>
-                    <option>Affärsverksamhet</option>
-                    <option>Övrigt</option>
+                <select asp-for="Item.Category" class="form-select shadow-none border-secondary" required>
+                    <option value="" selected>Välj...</option>
+                    <option value="Jobb">Jobb</option>
+                    <option value="Fordon">Fordon</option>
+                    <option value="För hemmet">För hemmet</option>
+                    <option value="Bostad">Bostad</option>
+                    <option value="Personligt">Personligt</option>
+                    <option value="Elektronik">Elektronik</option>
+                    <option value="Fritid & hobby">Fritid & hobby</option>
+                    <option value="Affärsverksamhet">Affärsverksamhet</option>
+                    <option value="Övrigt">Övrigt</option>
                 </select>
             </div>
             <div class="col">
                 <label asp-for="Item.Place">Plats</label>
-                <select asp-for="Item.Place" class="form-select shadow-none border-secondary">
-                    <option selected>Välj...</option>
-                    <option>Svealand</option>
-                    <option>Götaland</option>
-                    <option>Norrland</option>
+                <select asp-for="Item.Place" class="form-select shadow-none border-secondary" required>
+                    <option value="" selected>Välj...</option>
+                    <option value="Svealand">Svealand</option>
+                    <option value="Götaland">Götaland</option>
+                    <option value="Norrland">Norrland</option>
                 </select>
             </div>
         </div>
         <div class="form-group">
             <label asp-for="Item.Price">Pris</label>
-            <input asp-for="Item.Price" type="text" class="form-control shadow-none border-secondary" placeholder="Pris">
+            <input asp-for="Item.Price" type="text" class="form-control shadow-none border-secondary" placeholder="Pris" required>
         </div>
-        <button type="submit" class="btn btn-secondary mt-2">Lägg upp annons</button>
+
+        <div class="text-center">
+            <button type="submit" class="nav-link link-secondary me-auto d-inline-block border btn-color" style="margin-top: 10px; border-radius: 15px;">Lägg upp annons</button>
+        </div>
+
     </form> 
 }
 else

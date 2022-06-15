@@ -22,5 +22,10 @@ namespace Agil.Pages
         {
 
         }
+
+        public void OnPost(string searchString, string location)
+        {
+            Redirect($"/home/items?searchString={searchString}&location={location}");
+        }
     }
 }

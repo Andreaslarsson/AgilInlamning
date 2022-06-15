@@ -9,38 +9,48 @@
     var myPostedAdvertisementList = await _websiteHandler.MyPostedAdvertisement(_userManager.GetUserId(User));
 }
 
+<div class="text-center mt-5 title-color mb-5">
+    <h2 class="display-5">Mina annonser</h2>
+</div>
+
     @foreach (var i in myPostedAdvertisementList)
     {
-
-        <div class="card mb-3 mx-auto w-50">
+        <div class="card mb-3 mx-auto w-50" style="border-radius: 15px;">
             <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="Bild på det som säljes/köpes">
+                <div class="col-md-4 d-flex"  style="align-content: center">
+                    <img src="https://semantic-ui.com/images/wireframe/image.png" class="ps-3" style="margin: auto; width: 100%;" alt="Bild på det som säljes/köpes">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <div class="d-flex mb-3">
-                            <h5 class="me-auto p-2 card-title">@i.Title</h5>
-                            <a class="p-2 btn btn-warning" asp-page="/Home/Edit" asp-route-id="@i.Id" data-bs-toggle="tooltip" title="Redigera"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            <br/>
-                            <a class="p-2 btn btn-danger" asp-page="/Home/Delete" asp-route-id="@i.Id" data-bs-toggle="tooltip" title="Radera"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        <div class="d-flex justify-content-start">
+                            <h5 class="me-auto card-title fw-normal mt-2">@i.Title</h5>
+                            <div class="d-flex ms-auto justify-content-end">
+                                <a class="m-1 btn btn-outline-warning shadow-none btn-sm" asp-page="/Home/Edit" asp-route-id="@i.Id" data-bs-toggle="tooltip" title="Redigera" style="height: 33px;"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                <br/>
+                                <a class="m-1 btn btn-outline-danger shadow-none btn-sm" asp-page="/Home/Delete" asp-route-id="@i.Id" data-bs-toggle="tooltip" title="Radera" style="height: 33px;"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                            </div>
                         </div>
-                        <p class="card-text">@i.Description</p>
-                        <p class=" card-text"><small class="text-muted">@i.Category-@i.Place</small></p>
-                        <p class="card-text"><small class="text-muted">Pris: @i.Price :-</small></p>
+                        <p class="card-text fw-normal mt-2">@i.Description</p>
+                        <div class="d-flex justify-content-start">
+                            <p class="card-text fw-normal"><small class="text-muted">Pris: @i.Price :-</small></p>
+                            <div class="d-flex ms-auto justify-content-end">
+                                <p class="card-text fw-light"><small class="text-muted">@i.Category - @i.Place</small></p>
+                            </div>
+                            
+                        </div>
+                        <div class="d-flex ms-auto justify-content-end">
+                            <p class="card-text fw-light"><small class="text-muted">Publicerades: @i.CreatedDate.ToString("dd'/'MM'-'yyyy")</small></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-            
-            
+
     }
 @if(myPostedAdvertisementList.Count == 0)
 {
-    <div>
-        <h3>Du har inte lagt upp några annonser än.</h3>
-        <a class="btn btn-success" asp-page="/Home/AddItem">Skapa en annons</a>
+    <div class="text-center title-color mb-5">
+        <h4 class="lead">Du har inte lagt upp några annonser än</h4>
+        <a asp-page="/Home/AddItem" class="nav-link link-secondary me-auto d-inline-block border btn-color mt-5" style="border-radius: 15px">Skapa en annons</a>
     </div>
 }
-    
-
