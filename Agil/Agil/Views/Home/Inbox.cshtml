@@ -1,0 +1,48 @@
+﻿@using Agil.Services
+@using Microsoft.AspNetCore.Identity
+@using Agil.Models
+@using System.Diagnostics.CodeAnalysis
+@inject WebsiteHandler _websiteHandler
+@inject UserManager<User> _userManager
+@inject SignInManager<User> _signInManager
+@model List<Agil.Models.Message>
+@{
+    var receivedMessages = Model;
+}
+
+<div class="text-center mt-5 title-color mb-5">
+    <h2 class="display-5">Mina annonser</h2>
+</div>
+
+    @foreach (var r in receivedMessages)
+    {
+        <div class="card mb-3 mx-auto w-50" style="border-radius: 15px;">
+            <div class="row g-0">
+                <div class="col-md-4 d-flex"  style="align-content: center">
+                    <img src="https://semantic-ui.com/images/wireframe/image.png" class="ps-3" style="margin: auto; width: 100%;" alt="Bild på det som säljes/köpes">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-start">
+                            <h5 class="me-auto card-title fw-normal mt-2">@r.ItemInQuestion.Title</h5>
+                        </div>
+                        <p class="card-text fw-normal mt-2">@r.Body</p>
+                        <div class="d-flex justify-content-start">
+                            <p class="card-text fw-normal"><small class="text-muted">Från @r.FromUser</small></p>
+                            <div class="d-flex ms-auto justify-content-end">
+                                <p class="card-text fw-light"><small class="text-muted">Till @r.ToUser</small></p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+@if(receivedMessages.Count == 0)
+{
+    <div class="text-center title-color mb-5">
+        <h4 class="lead">Du har inga meddelanden</h4>
+    </div>
+}

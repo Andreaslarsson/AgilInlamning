@@ -46,6 +46,21 @@ namespace Agil.Services
             await _ctx.SaveChangesAsync();
         }
 
+        public async Task<List<Message>> ReceivedMessages(User userId)
+        {
+            var thisUser = await _ctx.Users
+                    .Include(m => m.ReceivedMessages)
+                    .FirstAsync(u => u.Id == userId.Id);
+
+            return thisUser.ReceivedMessages.ToList();
+        }
+        public List<Message> SendedMessages(string userId)
+        {
+            var thisUser = GetThisUser(userId);
+
+            return thisUser.SendedMessages.ToList();
+        }
+
         public async Task SaveItem(User userId, Item itemId)
         {
             var user = await _ctx.Users.FirstAsync(u => u.Id == userId.Id);

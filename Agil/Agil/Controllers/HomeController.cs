@@ -61,6 +61,12 @@ namespace Agil.Controllers
             var myPostedAdvertisements = _websiteHandler.MyPostedAdvertisement(userId);
             return View(myPostedAdvertisements);
         }
+        public IActionResult Inbox()
+        {
+            var userId = _websiteHandler.GetThisUser(_userManager.GetUserId(User));
+            var inbox = _websiteHandler.ReceivedMessages(userId).Result;
+            return View(inbox);
+        }
         public async Task<IActionResult> Confirm(int id)
         {
             var user = _websiteHandler.GetThisUser(_userManager.GetUserId(User));
