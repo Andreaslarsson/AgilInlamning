@@ -3,31 +3,38 @@
 
 @{
     ViewData["Title"] = "Delete";
+
+    var item = Model.Item;
 }
 
-<h1 class="text-center">Radera Annons</h1>
-<hr/>
-<h3 class="text-center">Är du säker på att du vill radera denna annons?</h3>
-<div class="card mb-3 mx-auto w-50">
+
+<div class="text-center mt-5 title-color mb-4">
+    <h2 class="display-5">Radera annons</h2>
+    <h5 class="fw-light">Är du säker på att du vill radera denna annons?</h5>
+</div>
+
+<div class="card mb-3 mx-auto w-50 mt-4" style="border-radius: 15px">
     <div class="row g-0">
-        <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="Bild på det som säljes/köpes">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <div class="d-flex mb-3">
-                    <h5 class="me-auto p-2 card-title">@Html.DisplayFor(model => model.Item.Title)</h5>
-                </div>
-                <p class="card-text">@Html.DisplayFor(model => model.Item.Description)</p>
-                <p class=" card-text"><small class="text-muted">@Html.DisplayFor(model => model.Item.Category) - @Html.DisplayFor(model => model.Item.Place)</small></p>
-                <p class="card-text"><small class="text-muted">Pris: @Html.DisplayFor(model => model.Item.Price) :-</small></p>
-                <p class="card-text"><small class="text-muted">Publiserings datum: @Html.DisplayFor(model => model.Item.CreatedDate) :-</small></p>
+        <div class="col">
+            <div class=" d-flex justify-content-center mt-3" >
+                <img src="https://semantic-ui.com/images/wireframe/image.png" class="w-50 p-3" alt="...">
             </div>
+            <div class="card-body text-center mt-1">
+                <h5 class="card-title title-color fw-normal">@item.Title</h5>
+                <hr/>
+                <p class="fw-light">@item.Place | @item.Category</p>
+                <p class="fw-normal">@item.Description</p>
+                <p class="fw-normal">Pris: @item.Price:-</p>
+                <p class="fw-light fst-italic text-muted"><small>Publicerings datum: @item.CreatedDate.ToString("dd'/'MM'-'yyyy")</small></p>
+            </div>
+            
+            <form method="post">
+                <div class="text-center mb-4">
+                    <input type="hidden" asp-for="Item.Id"/>
+                    <a class="nav-link link-secondary me-auto d-inline-block border btn-color" style="border-radius: 15px" asp-controller="Home" asp-action="MyPostedAdvertisement">Gå tillbaka</a>
+                    <input type="submit" value="Radera" class="nav-link link-secondary me-auto d-inline-block border btn-color" style="border-radius: 15px"/>
+                </div>
+            </form>
         </div>
     </div>
-    <form method="post">
-        <input type="hidden" asp-for="Item.Id" />
-        <input type="submit" value="Radera" class="btn btn-danger" /> |
-        <a class="nav-link link-secondary me-auto d-inline-block border btn-color" asp-controller="Home" asp-action="MyPostedAdvertisement">Mina Annonser</a>
-    </form>
 </div>

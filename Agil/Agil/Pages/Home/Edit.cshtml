@@ -6,62 +6,71 @@
 
 }
 
-<h1>Redigera Annons</h1>
-<hr />
+<div class="text-center mt-5 title-color mb-4">
+    <h2 class="display-5">Redigera annons</h2>
+</div>
+
 <div class="row">
-    <div class="col-md-4">
-        <form method="post">
+    <div class="col">
+        <form  class="w-50 mx-auto border mt-4 mb-4 p-3" style="border-radius: 15px; background-color: white" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Item.Id" />
             <div class="form-group">
                 <label asp-for="Item.Title" class="control-label">Titel</label>
-                <input asp-for="Item.Title" class="form-control" />
+                <input asp-for="Item.Title" class="form-control shadow-none border-secondary" />
                 <span asp-validation-for="Item.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Item.Description" class="control-label">Beskrivning</label>
-                <input asp-for="Item.Description" class="form-control" />
+                <textarea asp-for="Item.Description" type="text" class="form-control shadow-none border-secondary" placeholder="Beskrivning"  required></textarea>
                 <span asp-validation-for="Item.Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Item.Category">Kategori</label>
-                <select asp-for="Item.Category" class="form-select shadow-none border-secondary">
-                    <option selected>Välj...</option>
-                    <option>Jobb</option>
-                    <option>Fordon</option>
-                    <option>För hemmet</option>
-                    <option>Bostad</option>
-                    <option>Personligt</option>
-                    <option>Elektronik</option>
-                    <option>Fritid & hobby</option>
-                    <option>Affärsverksamhet</option>
-                    <option>Övrigt</option>
-                </select>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Item.Category">Kategori</label>
+                        <select asp-for="Item.Category" class="form-select shadow-none border-secondary">
+                            <option selected>Välj...</option>
+                            <option>Jobb</option>
+                            <option>Fordon</option>
+                            <option>För hemmet</option>
+                            <option>Bostad</option>
+                            <option>Personligt</option>
+                            <option>Elektronik</option>
+                            <option>Fritid & hobby</option>
+                            <option>Affärsverksamhet</option>
+                            <option>Övrigt</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Item.Place">Plats</label>
+                        <select asp-for="Item.Place" class="form-select shadow-none border-secondary">
+                            <option selected>Välj...</option>
+                            <option>Svealand</option>
+                            <option>Götaland</option>
+                            <option>Norrland</option>
+                        </select>
+                    </div>
+                </div>
             </div>
+            
             <div class="form-group">
                 <label asp-for="Item.Price" class="control-label">Pris</label>
-                <input asp-for="Item.Price" class="form-control" />
+                <input asp-for="Item.Price" class="form-control shadow-none border-secondary" />
                 <span asp-validation-for="Item.Price" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Item.Place">Plats</label>
-                <select asp-for="Item.Place" class="form-select shadow-none border-secondary">
-                    <option selected>Välj...</option>
-                    <option>Svealand</option>
-                    <option>Götaland</option>
-                    <option>Norrland</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Spara" class="nav-link link-secondary me-auto d-inline-block border btn-color" />
+            
+            <div class="form-group text-center">
+                <input type="submit" value="Spara" class="nav-link link-secondary me-auto d-inline-block border btn-color" style="margin-top: 10px; border-radius: 15px;" />
+                <a class="nav-link link-secondary me-auto d-inline-block border btn-color" style="margin-top: 10px; border-radius: 15px;" asp-controller="Home" asp-action="MyPostedAdvertisement">Mina Annonser</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a class="btn btn-outline-primary" asp-controller="Home" asp-action="MyPostedAdvertisement">Mina Annonser</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

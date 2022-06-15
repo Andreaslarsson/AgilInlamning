@@ -69,8 +69,8 @@
                         <div class="d-flex w-100 justify-content-between mb-2">
                             <small>@i.Category - @i.Place</small>
                         </div>
-                        <h5 class="mb-2">@i.Title</h5>
-                        <p class="mb-1">Pris: @i.Price:-</p>
+                        <h5 class="mb-2 fw-normal">@i.Title</h5>
+                        <p class="mb-1 fw-normal">Pris: @i.Price:-</p>
                         <div class="d-flex ms-auto justify-content-start">
                             <a style="margin-top: 15px; border-radius: 15px" asp-page="/Home/ShowItem" class="nav-link link-secondary me-auto d-inline-block border btn-color" asp-route-id="@i.Id">Läs mer...</a>
                             <p class="card-text fw-light d-flex justify-content-end" style="position: absolute; right: 16px; bottom: 8px;"><small class="text-muted">Publicerades: @i.CreatedDate.ToString("dd'/'MM'-'yyyy")</small></p>
