@@ -32,6 +32,20 @@ namespace Agil.Services
             await _ctx.SaveChangesAsync();
         }
 
+        public async Task SendMessage(User fromUser, Item itemInQuestion, string body, int messageId)
+        {
+            _ctx.Messages.Add(new Message()
+            {
+                ToUser = itemInQuestion.User,
+                FromUser = fromUser,
+                ItemInQuestion = itemInQuestion,
+                Body = body,
+                MessageId = messageId
+            });
+
+            await _ctx.SaveChangesAsync();
+        }
+
         public async Task SaveItem(User userId, Item itemId)
         {
             var user = await _ctx.Users.FirstAsync(u => u.Id == userId.Id);

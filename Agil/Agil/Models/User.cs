@@ -9,4 +9,8 @@ public class User : IdentityUser
     public ICollection<Item>? Items { get; set; }
     [InverseProperty("SavedBy")]
     public ICollection<Item>? SavedItems { get; set; }
+    [InverseProperty("FromUser")]
+    public ICollection<Message>? SendedMessages { get; set; }
+    [InverseProperty("ToUser")]
+    public ICollection<Message>? ReceivedMessages { get; set; }
 }

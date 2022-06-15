@@ -56,7 +56,7 @@
                 <div class="d-flex justify-content-start">
                     <p class="fw-light">Säljs av: @Model.Item.User.UserName</p>
                     <div class="d-flex ms-auto justify-content-end">
-                        <a class="btn btn-outline-secondary btn-color btn-sm shadow-none" style="height: 33px; border-radius: 15px;"><i class="bi bi-envelope pe-2"></i>Skicka meddelande</a>
+                        <a asp-page="/Home/SendMessage" asp-route-id="@Model.Item.Id" class="btn btn-outline-secondary btn-color btn-sm shadow-none" style="height: 33px; border-radius: 15px;"><i class="bi bi-envelope pe-2"></i>Skicka meddelande</a>
                     </div>
                 </div>
                 <hr/>

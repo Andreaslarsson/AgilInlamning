@@ -11,4 +11,5 @@ public class ApplicationDbContext : IdentityDbContext<User>
 
     }
     public DbSet<Item> Items { get; set; }
+    public DbSet<Message> Messages { get; set; }
 }
