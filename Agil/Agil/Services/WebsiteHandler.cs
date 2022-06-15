@@ -51,7 +51,7 @@ namespace Agil.Services
             var thisUser = await _ctx.Users
                     .Include(m => m.ReceivedMessages)
                     .FirstAsync(u => u.Id == userId.Id);
-
+            
             return thisUser.ReceivedMessages.ToList();
         }
         public List<Message> SendedMessages(string userId)
