@@ -9,6 +9,7 @@
 @{
     ViewData["Title"] = "Home page";
     var user = _userManager.GetUserName(User);
+
 }
 @if (_signInManager.IsSignedIn(User))
 {
