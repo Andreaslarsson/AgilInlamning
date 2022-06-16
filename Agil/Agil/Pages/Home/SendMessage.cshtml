@@ -15,14 +15,13 @@
 {
     <form class="w-50 mx-auto border mt-4 mb-4 p-3" style="border-radius: 15px; background-color: white" method="post">
         <div class="form-group">
-            <p>@Model.Item.Title</p>
+            <p class="form-control shadow-none">Titel: @Model.Item.Title</p>
+        </div>
+        <div class="form-group" >
+            <textarea asp-for="Message.Body" type="text" class="form-control shadow-none" style="margin-bottom: 3%" placeholder="Skriv ditt meddelande här..."  required></textarea>
         </div>
         <div class="form-group">
-            <label asp-for="Message.Body">Skriv ditt meddelande här...</label>
-            <textarea asp-for="Message.Body" type="text" class="form-control shadow-none border-secondary" placeholder="Skriv ditt meddelande här..."  required></textarea>
-        </div>
-        <div class="form-group">
-            <p>Till @Model.Item.User.UserName</p>
+            <p class="form-control shadow-none">Till @Model.Item.User.UserName</p>
         </div>
         <div class="text-center">
             <button type="submit" class="nav-link link-secondary me-auto d-inline-block border btn-color" style="margin-top: 10px; border-radius: 15px;">Skicka</button>

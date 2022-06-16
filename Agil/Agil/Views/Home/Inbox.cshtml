@@ -14,33 +14,31 @@
     <h2 class="display-5">Inkommna meddelanden
     </h2>
 </div>
-
+@if (_signInManager.IsSignedIn(User))
+{
     @foreach (var r in receivedMessages)
     {
-        <div class="card mb-3 mx-auto w-50" style="border-radius: 15px;">
-            <div class="row g-0">
-                <div class="col-md-4 d-flex"  style="align-content: center">
-                    <img src="https://semantic-ui.com/images/wireframe/image.png" class="ps-3" style="margin: auto; width: 100%;" alt="Bild på det som säljes/köpes">
+        <div class="card mb-3 mx-auto w-50 text-center" style="border-radius: 15px;">
+            <div class="card-body">
+                <h5 class="form-control shadow-none">Titel: @r.ItemInQuestion.Title</h5>
+                <p class="form-control shadow-none">Meddelande: @r.Body</p>
+                <p class="form-control shadow-none"><small class="text-muted">Från: @r.FromUser.UserName</small></p>
+                <button style="border-radius: 15px" class="nav-link link-secondary me-auto d-inline-block border btn-color">Svara</button>
                 </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-start">
-                            <h5 class="me-auto card-title fw-normal mt-2">@r.ItemInQuestion.Title</h5>
-                        </div>
-                        <p class="card-text fw-normal mt-2">Meddelande: @r.Body</p>
-                        <div class="d-flex justify-content-end">
-                            <p class="card-text fw-normal"><small class="text-muted">Från: @r.FromUser.UserName</small></p>
-                        </div>
-                        <button class="nav-link link-secondary me-auto d-inline-block border btn-color">Svara</button>
-                    </div>
-                </div>
-            </div>
         </div>
-
     }
-@if(receivedMessages.Count == 0)
+    @if(receivedMessages.Count == 0)
+    {
+        <div class="text-center title-color mb-5">
+            <h4 class="lead">Du har inga meddelanden</h4>
+        </div>
+    }
+}
+else
 {
-    <div class="text-center title-color mb-5">
-        <h4 class="lead">Du har inga meddelanden</h4>
+    <div class="text-center mt-4">
+        <h3>Du måste logga in för att se meddelanden</h3>
+        <a type="button" class="btn btn-secondary" asp-area="Identity" asp-page="/Account/Login">Logga in</a>
     </div>
 }
+    
