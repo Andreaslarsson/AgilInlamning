@@ -20,13 +20,13 @@
     {
         <div class="card mb-3 mx-auto w-50 text-center" style="border-radius: 15px;">
             <div class="d-flex ms-auto justify-content-end" style="margin: 2%">
-                <a asp-page="/Home/Konstruktion" class="m-1 btn btn-outline-danger shadow-none btn-sm" data-bs-toggle="tooltip" title="Radera" style="height: 33px;"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                <a asp-page="/Home/UnderConstruction" class="m-1 btn btn-outline-danger shadow-none btn-sm" data-bs-toggle="tooltip" title="Radera" style="height: 33px;"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
             </div>
             <div class="card-body">
                 <h5 class="form-control shadow-none">Titel: @r.ItemInQuestion.Title</h5>
                 <p class="form-control shadow-none">Meddelande: @r.Body</p>
                 <p class="form-control shadow-none"><small class="text-muted">Från: @r.FromUser.UserName</small></p>
-                <a type="button" asp-page="/Home/Konstruktion" asp-route-id="@r.MessageId" style="border-radius: 15px" class="nav-link link-secondary me-auto d-inline-block border btn-color">Svara</a>
+                <a type="button" asp-page="/Home/UnderConstruction" asp-route-id="@r.MessageId" style="border-radius: 15px" class="nav-link link-secondary me-auto d-inline-block border btn-color">Svara</a>
             </div>
         </div>
     }
